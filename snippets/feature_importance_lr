@@ -1,0 +1,7 @@
+coefs = clf.coef_[0]
+(pd.DataFrame(index=X.columns, data=coefs, columns=['feature_importance'])
+ .assign(abs_coef=lambda x: x.abs())
+ .sort_values(by='abs_coef', ascending=False)
+ .drop(columns=['abs_coef'])
+ .style.bar(align='zero')
+)
