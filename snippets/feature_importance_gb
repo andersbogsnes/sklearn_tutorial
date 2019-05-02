@@ -1,4 +1,5 @@
 feature_importance = grid.best_estimator_.feature_importances_ # Grab feature importance from our best model
+# Put it into a pandas dataframe along so we can sort and print the values
 (pd.DataFrame(index=X.columns,
              data=feature_importance, 
              columns=['feature_importance'])

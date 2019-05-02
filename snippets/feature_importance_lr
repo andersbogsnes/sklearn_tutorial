@@ -1,4 +1,5 @@
-coefs = clf.coef_[0]
+coefs = clf.coef_[0]# Grab the coefficients of the regression
+# Put them into a dataframe, so we can easily sort and print them
 (pd.DataFrame(index=X.columns, data=coefs, columns=['feature_importance'])
  .assign(abs_coef=lambda x: x.abs())
  .sort_values(by='abs_coef', ascending=False)
